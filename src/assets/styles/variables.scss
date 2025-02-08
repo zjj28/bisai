@@ -1,0 +1,49 @@
+// 主题色变量
+:root {
+  // 品牌色
+  --primary-color: #409eff;
+  --primary-light-color: #ecf5ff;
+  
+  // 文字颜色
+  --text-primary: #303133;
+  --text-regular: #606266;
+  --text-secondary: #909399;
+
+  // 边框颜色
+  --border-color: #dcdfe6;
+  
+  // 背景色
+  --bg-color: #ffffff;
+  --bg-color-page: #f5f7fa;
+
+  // 阴影
+  --box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+// 深色模式
+html.dark {
+  --primary-color: #409eff;
+  --primary-light-color: #18222c;
+  
+  --text-primary: #e5eaf3;
+  --text-regular: #cfd3dc;
+  --text-secondary: #a3a6ad;
+  
+  --border-color: #4c4d4f;
+  
+  --bg-color: #141414;
+  --bg-color-page: #0a0a0a;
+}
+
+// 导出变量供其他文件使用
+:export {
+  primaryColor: var(--primary-color);
+  primaryLightColor: var(--primary-light-color);
+  textPrimary: var(--text-primary);
+  textRegular: var(--text-regular);
+  textSecondary: var(--text-secondary);
+  borderColor: var(--border-color);
+  bgColor: var(--bg-color);
+  bgColorPage: var(--bg-color-page);
+  boxShadow: var(--box-shadow);
+} 
