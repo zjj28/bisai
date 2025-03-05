@@ -1,1 +1,0 @@
-document.write("���������<b>23</b>&nbsp;");document.write("����IP��<b>18</b>&nbsp;");document.write("���������<b>44</b>&nbsp;&nbsp;");document.write("����IP��<b>31</b>&nbsp;");document.write("�������<b>98752</b>&nbsp;");document.write("��IP��<b>59339</b>&nbsp;");

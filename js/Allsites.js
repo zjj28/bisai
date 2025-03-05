@@ -1,1 +1,0 @@
-document.write("today <b>11795</b>&nbsp;");document.write("IP <b>3239</b>&nbsp;|&nbsp;");document.write("Total <b>23521200</b>&nbsp;");document.write("IP <b>4025763</b>&nbsp;");

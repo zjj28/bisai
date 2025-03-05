@@ -23,12 +23,30 @@ app.get('/admin', (req, res) => {
 });
 
 // 创建数据库连接池
-const pool = mysql.createPool(dbConfig);
+const pool = mysql.createPool({
+    ...dbConfig,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
+
+// 测试数据库连接
+pool.getConnection((err, connection) => {
+    if (err) {
+        console.error('数据库连接失败:', err);
+        return;
+    }
+    console.log('数据库连接成功');
+    connection.release();
+});
 
 // 添加错误处理中间件
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ error: '服务器内部错误' });
+    console.error('Error:', err);
+    res.status(500).json({ 
+        error: '服务器内部错误',
+        message: err.message 
+    });
 });
 
 // 记录访问
@@ -137,6 +155,68 @@ app.get('/api/device-stats', async (req, res, next) => {
         conn.release();
         
         res.json(stats);
+    } catch (error) {
+        next(error);
+    }
+});
+
+// 获取详细统计数据
+app.get('/api/dashboard-stats', async (req, res, next) => {
+    try {
+        const conn = await pool.getConnection();
+        
+        // 获取今日总览数据
+        const [todayStats] = await conn.execute(`
+            SELECT 
+                visit_count,
+                unique_visitors,
+                avg_stay_time,
+                mobile_count,
+                desktop_count,
+                tablet_count
+            FROM daily_stats 
+            WHERE stat_date = CURDATE()
+        `);
+
+        // 获取最近7天的趋势
+        const [weeklyTrend] = await conn.execute(`
+            SELECT 
+                stat_date,
+                visit_count,
+                unique_visitors,
+                avg_stay_time
+            FROM daily_stats
+            WHERE stat_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+            ORDER BY stat_date ASC
+        `);
+
+        // 获取热门页面
+        const [popularPages] = await conn.execute(`
+            SELECT 
+                page_url,
+                SUM(visit_count) as total_visits,
+                AVG(avg_stay_time) as avg_stay_time
+            FROM page_stats
+            WHERE visit_date >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+            GROUP BY page_url
+            ORDER BY total_visits DESC
+            LIMIT 10
+        `);
+
+        conn.release();
+        
+        res.json({
+            today: todayStats[0] || {
+                visit_count: 0,
+                unique_visitors: 0,
+                avg_stay_time: 0,
+                mobile_count: 0,
+                desktop_count: 0,
+                tablet_count: 0
+            },
+            weeklyTrend,
+            popularPages
+        });
     } catch (error) {
         next(error);
     }
