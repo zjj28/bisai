@@ -79,6 +79,19 @@
             z-index: -1;
             filter: brightness(0.8);
         }
+
+        .visit-stats {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .visit-stats p {
+            margin: 5px 0;
+        }
     </style>
 </head>
 
@@ -109,6 +122,12 @@
                 <br>
                 <a href="index.html">返回首页</a>
             </div>
+
+            <!-- 添加访问统计显示 -->
+            <div class="visit-stats">
+                <p>今日访问量: <span id="visitCount">-</span></p>
+                <p>独立访客数: <span id="uniqueVisitors">-</span></p>
+            </div>
         </div>
     </div>
 
@@ -129,6 +148,47 @@
 
             return false;
         }
+
+        // 记录访问
+        async function recordVisit() {
+            try {
+                const response = await fetch('http://localhost:3000/api/record-visit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        ip: '', // 服务器端会获取真实IP
+                        userAgent: navigator.userAgent,
+                        pageUrl: window.location.href
+                    })
+                });
+                if (!response.ok) throw new Error('Failed to record visit');
+            } catch (error) {
+                console.error('Error recording visit:', error);
+            }
+        }
+
+        // 获取并显示访问统计
+        async function updateVisitStats() {
+            try {
+                const response = await fetch('http://localhost:3000/api/visit-stats');
+                const stats = await response.json();
+                
+                document.getElementById('visitCount').textContent = stats.visit_count;
+                document.getElementById('uniqueVisitors').textContent = stats.unique_visitors;
+            } catch (error) {
+                console.error('Error fetching visit stats:', error);
+            }
+        }
+
+        // 页面加载时执行
+        document.addEventListener('DOMContentLoaded', () => {
+            recordVisit();
+            updateVisitStats();
+            // 每分钟更新一次统计数据
+            setInterval(updateVisitStats, 60000);
+        });
     </script>
 </body>
 
