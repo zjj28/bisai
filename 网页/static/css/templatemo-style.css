@@ -4603,22 +4603,24 @@ a:focus {
 	/* 上边距 10px */
 }
 
-
 /*index*/
 
 @media screen and (max-width: 1920px) {
+
+	/* 导航栏宽度 */
 	.header-m-box {
-		width: 397px
+		width: 500px
 	}
 
+	/* 导航栏文字 */
 	.header-link-m {
 		line-height: 16px;
-		font-size: 10px;
-		color: #333333;
-		font-weight: 300;
+		font-size: 18px;
+		color: #00274d;
+		font-weight: bold;
 		display: inline-block;
-		height: 60px;
-		width: 60px
+		height: 40px;
+		width: 85px
 	}
 
 	.header-icon-m {
@@ -4627,24 +4629,24 @@ a:focus {
 	}
 
 	.header-logo-m-box {
-		width: 90px;
-		height: 50px;
+		width: 100px;
+		height: 40px;
 		display: inline-block;
 		position: relative;
-		background: white
+		background: white;
 	}
 
 	.header-logo-m {
-		width: 70px;
-		height: 70px;
-		background: #FFF url(../image/CEMU.png);
+		width: 80px;
+		height: 80px;
+		background: #ffffff url(../image/newlogo.png);
 		position: absolute;
 		background-position: center;
 		background-size: contain;
 		left: 10px;
 		right: 10px;
 		top: -0px;
-		border: 5px solid white;
+		border: 5px solid rgb(255, 255, 255);
 		border-radius: 35px;
 		z-index: 2
 	}
