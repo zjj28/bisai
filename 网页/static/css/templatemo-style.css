@@ -413,6 +413,8 @@ img {
 
 .text-white {
 	color: white;
+	font-size: 20px;
+	font-weight: bolder;
 
 }
 
@@ -421,8 +423,9 @@ img {
 }
 
 /*.disabled {position: absolute;left: 0;top: 0;width: 100%;height: 3822px}*/
+/* 导航栏阴影 */
 .shadow {
-	box-shadow: 0 0 10px 0px #DEDEEF
+	box-shadow: 0 0 15px 0px #0f2d69
 }
 
 .shadow-sm {
@@ -796,7 +799,12 @@ img {
 }
 
 .border-radius-s {
-	border-radius: 8px;
+	border-radius: 30px;
+	overflow: hidden
+}
+
+.border-radius-bottom {
+	border-radius: 10px;
 	overflow: hidden
 }
 
@@ -4507,7 +4515,7 @@ a:focus {
 .header-m {
 	position: fixed;
 	/* 固定定位 */
-	top: 10px;
+	top: 15px;
 	/* 离顶部 20px */
 	bottom: auto;
 	/* 底部不受影响 */
@@ -4515,7 +4523,7 @@ a:focus {
 	/* 确保此元素在其他元素之上 */
 	text-align: justify-all;
 	/* 文本对齐方式 */
-	height: 84px;
+	height: 70px;
 	/* 高度 84px */
 	width: 100%;
 	/* 宽度占满整个屏幕 */
@@ -4539,9 +4547,9 @@ a:focus {
 
 /* logo 容器的样式 */
 .header-logo-m-box {
-	width: 120px;
+	width: 100px;
 	/* 容器宽度 */
-	height: 50px;
+	height: 40px;
 	/* 容器高度 */
 	display: inline-block;
 	/* 使元素成为行内块元素 */
@@ -4567,7 +4575,7 @@ a:focus {
 	right: 10px;
 	top: -18px;
 	/* 设置 logo 在容器中的位置 */
-	border: 5px solid white;
+	border: 3px solid white;
 	/* 白色边框，宽度 5px */
 	border-radius: 50px;
 	/* 圆形边角 */
@@ -4579,7 +4587,7 @@ a:focus {
 .header-link-m {
 	line-height: 26px;
 	/* 行高 26px */
-	font-size: 18px;
+	font-size: 25px;
 	/* 字体大小 18px */
 	color: #333333;
 	/* 字体颜色为深灰色 */
@@ -4602,6 +4610,7 @@ a:focus {
 	margin-top: 10px;
 	/* 上边距 10px */
 }
+
 
 /*index*/
 
@@ -4639,7 +4648,7 @@ a:focus {
 	.header-logo-m {
 		width: 80px;
 		height: 80px;
-		background: #ffffff url(../image/newlogo.png);
+		background: #ffffff url(../image/home/NewLogo.png);
 		position: absolute;
 		background-position: center;
 		background-size: contain;

@@ -6881,7 +6881,7 @@ a.bg-info:hover {
 	background-color: #31b0d5 !important
 }
 
-.bg-warning {
+y .bg-warning {
 	color: #fff !important;
 	background-color: #FF9500 !important
 }
@@ -7372,6 +7372,10 @@ a.bg-danger:hover {
 
 .font-weight-bold {
 	font-weight: 900 !important
+}
+
+.font-weight-bold-a {
+	font-weight: 1200 !important
 }
 
 .font-italic {
