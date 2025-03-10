@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="/img/ico/favicon.ico">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -10,8 +11,11 @@
 <head>
 	<title>首页 - 高铁智慧科普体验空间</title>
 	<link rel="stylesheet" href="static/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="static/css/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
 	<link rel="stylesheet" href="static/css/templatemo-style.css">
+	<link rel="stylesheet" href="static/css/lunbo.css">
+	<link rel="stylesheet" href="static/css/timeline.css">
+	<link rel="stylesheet" href="static/css/xuanzhuan.css">
 	<link rel="stylesheet" href="static/css/index.css">
 	<script src="static/js/jsindex.js"></script>
 	<script type="text/javascript" src="static/js/banner.js"></script>
@@ -19,7 +23,12 @@
 
 <body>
 
-
+	<meta name="keywords"
+		content="中国动车组,中国动车组参数,中国动车组大全,中国动车组所有型号,中国动车组列表,动车组参数,中国高铁,中国高速铁路,城际铁路,城市轨道交通,复兴号,和谐号,动车组技术,不是中国铁路官网,不是中国中车官网,CR400,CR300,CR200,CR450,CRH380,CRH,Cinova,China-EMU,ChinaEMU,高铁类型,高铁都有哪些型号,高铁都有那些型号,动车组都有哪些型号,中国都有哪些动车组,动车和高铁,中国动车组发展史,中国动车组发展历程">
+	<meta name="description"
+		content="本站努力收录更准确的中国动车组参数，高速铁路/城际铁路/城市轨道交通数据，但本站不是中国铁路官网，也不是中国中车公司官网，也不是地铁官网。历经多年的发展，中国动车组列车已经拥有很完备的产品系列，那么动车组都有哪些型号呢？和谐号目前有CRH1、CRH2、CRH3、CRH5、CRH380A、CRH380B、CRH380C、CRH380D，复兴号目前有CR400AF智能、CR400BF智能、CR400AF、CR400BF、CR300AF、CR300BF、CR200J-A、CR200J-B、CR200J-C、CR200J-D、CR200JS-G，城际市域动车组有CRH6A、CRH6F，没有CRH6S，还有CJ2、CJ3、CJ5、CJ6等，同时还有NDJ3。地铁列车也是动车组哦。高铁和动车都有哪些区别？它们是完全不一样的。中国动车组,动车组参数,中国高铁,中国高速铁路,城际铁路,城市轨道交通,复兴号,和谐号,动车组技术,不是中国铁路官网,不是中国中车官网,CR400,CR300,CR200,CR450,CRH380,CRH,Cinova,China-EMU,ChinaEMU,高铁类型,高铁都有哪些型号,高铁都有那些型号,动车组都有哪些型号,中国都有哪些动车组,动车和高铁,中国动车组的动车组参数,中国动车组大全,中国动车组所有型号,中国动车组列表,中国动车组发展史,中国动车组发展历程">
+	<meta name="color-scheme" content="only light">
+	<meta name="author" content="Huyii,慧伊创新科技（北京）有限公司">
 	<link rel="apple-touch-icon" href="/img/Cute/CR400BF-C.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="/img/Cute/CR400BF-C.png">
 	<link rel="apple-touch-icon" sizes="120x120" href="/img/Cute/CR400BF-C.png">
@@ -29,28 +38,42 @@
 	<link href="/img/ico/favicon.ico" mce_href="/img/ico/favicon.ico" rel="icon" type="image/x-icon">
 	<link href="/img/ico/favicon.ico" mce_href="/img/ico/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
+	<style>
+		@media (prefers-color-scheme: dark) {
+			body {
+				background: white;
+			}
+		}
+	</style>
+	<meta name="format-detection" content="telephone=no">
+
+	<script>
+		window.onload = function () {
+			document.onkeydown = function () {
+				var e = window.event || arguments[0];
+				if (e.keyCode == 123) { return false; } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) { return false; } else if ((e.shiftKey) && (e.keyCode == 121)) { return false; }
+			}; document.oncontextmenu = function () { return false; }
+		}
+	</script>
 
 
 	<div class="header-m" align="center" id="fix-m-b">
 		<div class="header-m-box shadow" id="fix-m">
-			<div class="header-logo-m-box"><a class="header-logo-m shadow" href="" id="logo"></a></div>
-
-			<a class="header-link-m " href="Trains.html">
-				动车风采
+			<a class="header-link-m " href="CR.html">
+				<div class="header-icon-m T1"></div>动车组
 			</a>
 			<a class="header-link-m " href="RailRoads.html">
-				线路探秘
+				<div class="header-icon-m T2"></div>线路图
 			</a>
-
+			<div class="header-logo-m-box"><a class="header-logo-m shadow" href="" id="logo"></a></div>
 			<a class="header-link-m" href="index1.html">
-				孪生视界
+				<div class="header-icon-m T3"></div>旅程
 			</a>
 			<a class="header-link-m " href="Topic.html">
-				人物百科
+				<div class="header-icon-m T4"></div>AI问答
 			</a>
 		</div>
 	</div>
-	<!-- 导航栏的大小控制 -->
 	<script>
 
 		window.addEventListener('scroll', function () {
@@ -74,6 +97,280 @@
 			else { document.getElementById('totop').style.bottom = "-50px"; }
 		});
 	</script>
+
+	<style>
+		.his {
+			flex-shrink: 0;
+			background-position: center;
+			display: flex;
+			scroll-snap-align: center;
+			scroll-snap-stop: always;
+			width: 100%;
+			max-width: 50%
+		}
+
+		/*.sc{ scroll-behavior: smooth;}*/
+		.sc::-webkit-scrollbar {
+			width: 0px;
+			height: 0px;
+		}
+
+		.angle-left {
+			position: absolute;
+			top: calc(50% - 20px);
+			left: calc(25% + 20px);
+			z-index: 99;
+			width: 40px;
+			height: 40px;
+			padding: 8px;
+			border-radius: 6px;
+			font-size: 24px;
+			line-height: 24px !important;
+			text-align: center;
+			color: #FFFFFF;
+			opacity: 0.8;
+			cursor: pointer;
+			background: rgba(55, 55, 55, 0.8);
+			border: 1px solid #AAAAAA
+		}
+
+		.angle-left:hover {
+			opacity: 1;
+			background: rgba(15, 15, 15, 1)
+		}
+
+		.angle-right {
+			position: absolute;
+			top: calc(50% - 20px);
+			right: calc(25% + 20px);
+			z-index: 199;
+			width: 40px;
+			height: 40px;
+			padding: 8px;
+			border-radius: 6px;
+			font-size: 24px;
+			line-height: 24px !important;
+			text-align: center;
+			color: #FFFFFF;
+			opacity: 0.8;
+			cursor: pointer;
+			background: rgba(55, 55, 55, 0.8);
+			border: 1px solid #AAAAAA
+		}
+
+		.angle-right:hover {
+			opacity: 1;
+			background: rgba(15, 15, 15, 1)
+		}
+
+		.btn-white {
+			width: 150px !important
+		}
+
+		/*.text-index{font-size: 200px;line-height: 280px}	.text-index-eng{font-size: 220px} .text-index-sm{font-size: 140px} */
+		.text-index {
+			font-size: 140px;
+			line-height: 200px
+		}
+
+		.text-index-eng {
+			font-size: 180px
+		}
+
+		.text-index-sm {
+			font-size: 80px
+		}
+
+		.panel-in-lndex {
+			width: 512px;
+			display: inline-block;
+			flex-shrink: 0;
+			background-position: center;
+			scroll-snap-align: start;
+			scroll-snap-stop: always;
+			/*display: flex;*/
+		}
+
+		.p-a-05 {
+			padding: 2px !important;
+			margin: 2px !important
+		}
+
+		@media(max-width:2560px) {
+			.text-index {
+				font-size: 140px;
+				line-height: 200px
+			}
+
+			.text-index-eng {
+				font-size: 180px
+			}
+
+			.text-index-sm {
+				font-size: 80px
+			}
+
+			.panel-in-lndex {
+				width: 320px
+			}
+		}
+
+		@media(max-width:1800px) {
+			.text-index {
+				font-size: 120px;
+				line-height: 150px
+			}
+
+			.text-index-eng {
+				font-size: 160px
+			}
+
+			.text-index-sm {
+				font-size: 70px
+			}
+
+			.panel-in-lndex {
+				width: 260px
+			}
+		}
+
+		@media(max-width:1280px) {
+			.text-index {
+				font-size: 80px;
+				line-height: 130px
+			}
+
+			.text-index-eng {
+				font-size: 140px
+			}
+
+			.text-index-sm {
+				font-size: 60px
+			}
+
+			.panel-in-lndex {
+				width: 220px
+			}
+		}
+
+		@media(max-width:768px) {
+			.text-index {
+				font-size: 60px;
+				line-height: 80px
+			}
+
+			.text-index-eng {
+				font-size: 80px
+			}
+
+			.text-index-sm {
+				font-size: 50px
+			}
+
+			.panel-in-lndex {
+				width: 160px;
+			}
+
+			.p-a-05 {
+				padding: 1px !important;
+				margin: 1px !important
+			}
+		}
+
+		@media(max-width:576px) {
+			.text-index {
+				font-size: 60px;
+				line-height: 80px
+			}
+
+			.text-index-eng {
+				font-size: 80px
+			}
+
+			.text-index-sm {
+				font-size: 40px
+			}
+
+			.panel-in-lndex {
+				width: 140px;
+			}
+		}
+
+		@media(max-width:1600px) {
+			.his {
+				max-width: 1200px
+			}
+
+			.angle-left {
+				left: 20px
+			}
+
+			.angle-right {
+				right: 20px
+			}
+		}
+
+		@media(max-width:1200px) {
+			.his {
+				max-width: 800px
+			}
+
+			.angle-left {
+				left: 20px
+			}
+
+			.angle-right {
+				right: 20px
+			}
+		}
+
+		@media(max-width:800px) {
+			.his {
+				max-width: 600px
+			}
+
+			.angle-left {
+				left: 20px
+			}
+
+			.angle-right {
+				right: 20px
+			}
+
+			.btn-white {
+				width: 120px !important
+			}
+		}
+
+		@media screen and (orientation: portrait) {
+			@media screen and (max-width: 1366px) {
+				.Homebanner {
+					width: 100%;
+					height: 50%;
+				}
+			}
+
+			@media screen and (min-width: 1367px) {
+				.Homebanner {
+					width: 100%;
+					height: 60%;
+				}
+			}
+		}
+	</style>
+
+	<script>
+		window.onload = function () {
+
+			document.onkeydown = function () {
+				var e = window.event || arguments[0];
+				if (e.keyCode == 123) { return false; } else if ((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)) { return false; } else if ((e.shiftKey) && (e.keyCode == 121)) { return false; }
+			}; document.oncontextmenu = function () { return false; }
+		}
+	</script>
+
+
+
 
 	<!-- 大图展示 -->
 	<div class="pic-bg-full" style="background-image: url(static/image/home/home3.jpg);">
@@ -263,6 +560,40 @@
 	</div>
 
 
+	<style>
+		.scrollA::-webkit-scrollbar {
+			width: 0px;
+			height: 0px;
+		}
+	</style>
+	<script>
+		function aa() { document.getElementById('CC0').scrollLeft += document.getElementById('NO1').offsetWidth * 0.6; }
+		document.getElementById('CC0').onscroll = function () {
+			if (document.body.offsetWidth >= 1600) {
+				if (document.getElementById('CC0').scrollLeft >= document.getElementById('NO1').offsetWidth * 6) {
+					var myDiv = document.getElementById("CC0");
+					myDiv.scrollLeft = 0;
+					myDiv.scrollLeft += document.getElementById('NO1').offsetWidth * 0.6;
+				}
+			}
+			else {
+				if (document.getElementById('CC0').scrollLeft >= document.getElementById('NO1').offsetWidth * 6.2) {
+					var myDiv = document.getElementById("CC0");
+					myDiv.scrollLeft = 0;
+					myDiv.scrollLeft += document.getElementById('NO1').offsetWidth * 0.6;
+				}
+			}
+
+			if (document.getElementById('CC0').scrollLeft <= 10) {
+				var myDiv = document.getElementById("CC0");
+				myDiv.scrollLeft = myDiv.scrollWidth;
+				myDiv.scrollLeft -= document.getElementById('NO1').offsetWidth * 0.6;
+			}
+		}
+		aa();
+	</script>
+
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<style>
 		.link {
@@ -274,15 +605,29 @@
 			font-size: 14px;
 		}
 
+		.link2 {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			text-align: center;
+			padding: 0px 3px;
+			line-height: 36px;
+			font-size: 14px
+		}
+
+		.link2:first-child {
+			padding-left: 0
+		}
+
+		.link2:last-child {
+			padding-right: 0
+		}
 
 		.xxx a {
-			color: #ffffff;
+			color: #DCDCDC;
 			text-align: center !important;
 			display: block;
-			font-size: 15px;
 			/* 设置为块级元素 */
-			margin-bottom: 5px;
-			/* 设置段间距 */
 		}
 
 		.xxx a:hover {
@@ -292,7 +637,12 @@
 			/* 设置为块级元素 */
 		}
 
-
+		@media(max-width:768px) {
+			.link2 {
+				line-height: 28px;
+				font-size: 11px
+			}
+		}
 
 		.text-gray {
 			color: #AFAFAF;
@@ -317,7 +667,7 @@
 		.lined {
 			width: 100%;
 			height: 1px;
-			background: #ffffff;
+			background: #8696CB;
 			margin: 1em 0;
 
 		}
@@ -350,18 +700,21 @@
 
 		@media(min-width:1921px) {
 
-			.link {
+			.link,
+			.link2 {
 				font-size: 18px
 			}
 		}
 
 		@media(min-width:2561px) {
 
-			.link {
+			.link,
+			.link2 {
 				font-size: 24px
 			}
 		}
 
+		.border-radius-s-none {}
 
 		.totop {
 			position: fixed;
@@ -435,13 +788,41 @@
 						<div class="xxx">
 							<a href="Topic.html" class="link">全部内容</a>
 							<a href="index2.html" class="link" target="_blank">小宁交通</a>
+							<!-- <a href="https://huyii.cn/" class="link" target="_blank">了解慧伊创新</a> -->
 						</div>
 					</div>
 				</div>
+				<div class="seperation border-bottom" style="clear: both;border-color: #8696CB;"></div>
+
+				<div class="seperation"></div>
+
 			</div>
 			<div class="col-xs-12 col-sm-1"> </div>
 			<div class="seperation" style="clear: both"></div>
 		</div>
+
+		<div class="col-xs-12 col-sm-1"> </div>
+		<div class="col-xs-12 col-sm-10 tm-pad-0">
+			<div class="p-y-1">
+				<div class="col-xs-12 col-md-6 col-lg-6 lc font-weight-bold">
+					<div style="line-height: 36px; white-space: nowrap">
+						<a href="https://huyii.cn/" target="_blank">慧伊创新</a> &copy; 2014-2025
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-md-6 col-lg-6 rc">
+					<img src="static/picture/huyii.png" style="height: 36px">
+				</div>
+			</div>
+			<div style="clear: both"></div>
+			<div style="color: #F1F1F1;line-height: 14px">
+				<div class="font-small" style="white-space: nowrap; overflow: hidden;text-overflow: ellipsis;">
+
+					<script language="JavaScript" src="static/js/Allsites.js"></script>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-1"> </div>
 		<div class="seperation" style="clear: both"></div-->
 		</div>
 	</div>
