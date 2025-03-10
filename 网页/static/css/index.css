@@ -610,3 +610,24 @@ li:nth-child(6) .card {
     transform: translateY(-5px);
     box-shadow: 0px 8px 16px rgba(16, 128, 193, 0.3);
 }
+
+
+
+/* 底部导航栏 */
+.footer-nav {
+    background-color: #5d8696;
+    /* 导航栏背景颜色 */
+    color: white;
+    /* 文字颜色 */
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* 导航栏容器 */
+.footer-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

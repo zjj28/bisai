@@ -10,7 +10,7 @@
 <head>
 	<title>首页 - 高铁智慧科普体验空间</title>
 	<link rel="stylesheet" href="static/css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" href="static/css/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="static/css/font-awesome.min.css">
 	<link rel="stylesheet" href="static/css/templatemo-style.css">
 	<link rel="stylesheet" href="static/css/index.css">
 	<script src="static/js/jsindex.js"></script>
@@ -33,7 +33,7 @@
 
 	<div class="header-m" align="center" id="fix-m-b">
 		<div class="header-m-box shadow" id="fix-m">
-			<div class="header-logo-m-box"><a class="header-logo-m shadow" href="" id="logo"></a></div>
+			<div class="header-logo-m-box"><a class="header-logo-m shadow" href="index.html" id="logo"></a></div>
 
 			<a class="header-link-m " href="CR.html">
 				动车风采
@@ -283,6 +283,7 @@
 			/* 设置为块级元素 */
 			margin-bottom: 5px;
 			/* 设置段间距 */
+
 		}
 
 		.xxx a:hover {
@@ -323,13 +324,13 @@
 		}
 
 		.xxxbox {
-			margin: 0 -8px;
+			margin: 0 0px;
 			text-align: center;
 		}
 
 		@media(max-width:1280px) {
 			.xxxbox {
-				margin: 0 -5px
+				margin: 0 0px
 			}
 
 			.lined {
@@ -339,7 +340,7 @@
 
 		@media(max-width:768px) {
 			.xxxbox {
-				margin: 0 5px
+				margin: 0 0px
 			}
 
 			.xxx a {
@@ -387,54 +388,61 @@
 			line-height: 50px !important
 		}
 
+		#but {
+			border-left: 1px solid #ffffff;
+			/* 左边框：5px 宽的蓝色实线 */
+			border-right: 1px solid #ffffff;
+			/* 右边框：5px 宽的蓝色实线 */
+			height: 80%;
+		}
+
 		;
 	</style>
 
 	<!-- 底部蓝色导航 -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row bg-info border-radius-s">
 			<div class="col-xs-12 col-sm-1"> </div>
 			<div class="col-xs-12 col-sm-10">
 				<div class="seperation"></div>
 				<div class="xxxbox">
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
-						<a href="Trains.html" class="text-white">列车</a>
+						<a href="CR.html" class="text-white">动车风采</a>
 						<div class="lined"></div>
 						<div class="xxx">
-							<a href="CR.html" class="link">干线动车组</a>
-							<a href="CR-Fuxing.html" class="link hidden">复兴号</a>
-							<a href="Intercity.html" class="link">城际/市域动车组</a>
-							<a href="UrbanRails.html" class="link">城市轨道交通列车</a>
-							<a href="Doctor.html" class="link">高速综合检测列车</a>
+							<a href="CR.html" class="link">#</a>
+							<a href="CR-Fuxing.html" class="link hidden">发展历程</a>
+							<a href="Intercity.html" class="link">#</a>
+							<a href="UrbanRails.html" class="link">#</a>
+							<a href="Doctor.html" class="link">#</a>
 						</div>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
-						<a href="RailRoads.html" class="text-white">线路</a>
+						<a href="RailRoads.html" class="text-white">线路探秘</a>
 						<div class="lined"></div>
 						<div class="xxx">
-							<a href="RailRoads1.html" class="link">高速铁路</a>
-							<a href="Intercity1.html" class="link">城际铁路</a>
-							<a href="UrbanRail.html" class="link">城市轨道</a>
-							<a href="Virtual.html" class="link">虚拟轨道</a>
-							<a href="https://xiaoning.china-emu.cn/China/BRT/" class="link hidden">BRT</a>
+							<a href="RailRoads1.html" class="link">#</a>
+							<a href="Intercity1.html" class="link">#</a>
+							<a href="UrbanRail.html" class="link">#</a>
+							<a href="Virtual.html" class="link">#</a>
 						</div>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
-						<a href="index1.html" class="text-white">旅程</a>
+						<a href="index1.html" class="text-white">孪生视界</a>
 						<div class="lined"></div>
 						<div class="xxx">
-							<a href="Guide.html" class="link">铁道搭乘指南</a>
-							<a href="Routes.html" class="link">热门旅程</a>
-							<a href="Destinations.html" class="link hidden">热门城市</a>
-							<a href="Air-Rail.html" class="link">空铁联运</a>
+							<a href="Guide.html" class="link">#</a>
+							<a href="Routes.html" class="link">#</a>
+							<a href="Destinations.html" class="link hidden">#</a>
+							<a href="Air-Rail.html" class="link">#</a>
 						</div>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
-						<a href="Topic.html" class="text-white">话题</a>
+						<a href="Topic.html" class="text-white">人物百科</a>
 						<div class="lined"></div>
 						<div class="xxx">
-							<a href="Topic.html" class="link">全部内容</a>
-							<a href="index2.html" class="link" target="_blank">小宁交通</a>
+							<a href="Topic.html" class="link">国内铁路先驱</a>
+							<a href="index2.html" class="link" target="_blank">铁路知识问答</a>
 						</div>
 					</div>
 				</div>
@@ -442,9 +450,61 @@
 			<div class="col-xs-12 col-sm-1"> </div>
 			<div class="seperation" style="clear: both"></div>
 		</div>
-		<div class="seperation" style="clear: both"></div-->
+		<div class="seperation" style="clear: both"></div>
+
+	</div> -->
+
+	<footer class="footer-nav">
+		<div class="footer-nav-container">
+			<div class="col-xs-12 col-sm-10">
+				<div class="seperation"></div>
+				<div class="xxxbox">
+					<div id="but" class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
+						<a href="CR.html" class="text-white">动车风采</a>
+						<div class="seperation"></div>
+						<div class="xxx">
+							<a href="CR.html" class="link">#</a>
+							<a href="CR-Fuxing.html" class="link hidden">发展历程</a>
+							<a href="Intercity.html" class="link">#</a>
+							<a href="UrbanRails.html" class="link">#</a>
+							<a href="Doctor.html" class="link">#</a>
+						</div>
+					</div>
+					<div id="but" class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
+						<a href="RailRoads.html" class="text-white">线路探秘</a>
+						<div class="seperation"></div>
+						<div class="xxx">
+							<a href="RailRoads1.html" class="link">#</a>
+							<a href="Intercity1.html" class="link">#</a>
+							<a href="UrbanRail.html" class="link">#</a>
+							<a href="Virtual.html" class="link">#</a>
+						</div>
+					</div>
+					<div id="but" class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
+						<a href="index1.html" class="text-white">孪生视界</a>
+						<div class="seperation"></div>
+						<div class="xxx">
+							<a href="Guide.html" class="link">#</a>
+							<a href="Routes.html" class="link">#</a>
+							<a href="Destinations.html" class="link hidden">#</a>
+							<a href="Air-Rail.html" class="link">#</a>
+						</div>
+					</div>
+					<div id="but" class="col-xs-6 col-sm-6 col-md-3 col-lg-3 col-el-2">
+						<a href="Topic.html" class="text-white">人物百科</a>
+						<div class="seperation"></div>
+						<div class="xxx">
+							<a href="Topic.html" class="link">国内铁路先驱</a>
+							<a href="index2.html" class="link" target="_blank">铁路知识问答</a>
+						</div>
+					</div>
+				</div>
+				<div class="seperation"></div>
+			</div>
 		</div>
-	</div>
+	</footer>
+
+
 	<div onclick="scrollToTop()" id="totop" class="totop" title="滚动至顶部">
 		<i class="fa fa-angle-up"></i>
 	</div>
