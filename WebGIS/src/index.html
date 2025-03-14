@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高铁站点WebGIS系统</title>
+    <!-- 自定义CSS -->
+    <link rel="stylesheet" href="css/map.css" />
+    <script>
+        window._AMapSecurityConfig = {
+            securityJsCode: '', // 如果启用了安全密钥，请在此处填写
+        }
+        
+        function initMapAfterLoad() {
+            if (typeof AMap !== 'undefined' && typeof initMap === 'function') {
+                console.log('高德地图API加载完成，开始初始化地图');
+                initMap();
+            } else {
+                console.error('地图初始化失败，AMap或initMap未定义');
+            }
+        }
+    </script>
+    <!-- 加载高德地图API，使用异步加载方式 -->
+    <script src="https://webapi.amap.com/maps?v=2.0&key=05dc71e1e19e9cc2aec29bf9ef003cda&callback=initMapAfterLoad"></script>
+    <!-- 加载自定义JS -->
+    <script src="js/map-init.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>全国高铁站点信息系统</h1>
+        </header>
+        
+        <div id="loading-container">
+            <div id="loading-bar">
+                <div id="loading-progress"></div>
+            </div>
+            <div id="loading-text">加载中...</div>
+        </div>
+        
+        <div id="map-container">
+            <div id="map"></div>
+        </div>
+        
+        <div id="error-container" class="hidden">
+            <div class="error-message">
+                <h3>数据加载失败</h3>
+                <p>无法加载地图数据，请检查网络连接后重试。</p>
+                <button id="retry-button">重新加载</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 自定义JS -->
+    <script src="js/api-handler.js"></script>
+</body>
+</html> 
