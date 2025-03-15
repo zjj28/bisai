@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -44,17 +44,22 @@
         h2 {
             font-size: 36px;
             margin-top: 40px;
+            text-align: center;
         }
 
         h3 {
             font-size: 24px;
             color: #6b91c1;
             margin-top: 20px;
+            text-align: center;
         }
 
         p {
             font-size: 16px;
             line-height: 1.6;
+            text-indent: 2em;
+            /* 首行缩进 2 个字符 */
+
         }
 
         .card {
@@ -260,8 +265,6 @@
             /* 使容器宽度占满父元素 */
         }
 
-        j
-
         /* 按钮样式 */
         button {
             padding: 10px 20px;
@@ -296,7 +299,7 @@
         <div class="container">
             <!-- 大标题 -->
             <div>
-                <h1>中国速度的首次腾飞（2008年）</h1>
+                <h1>自主启航·破晓之翼（2008年）</h1>
                 <h2>京津城际高铁开通，中国首条350km/h高速铁路诞生</h2>
                 <div class=" seperation"></div>
                 <p>2008年京津城际高铁的开通，是中国高铁发展史上的重要转折点。它不仅实现了中国高铁技术的重大突破，也为中国高铁的快速发展注入了强劲动力。这一年的成就，正如黎明前的曙光，照亮了中国高铁未来的辉煌之路，成为中国高铁从追赶到引领世界的重要起点。
@@ -413,7 +416,7 @@
             let hasReachedBottom = false;
 
             // 预加载 Exploration2 的内容
-            fetch('Exploration2.html')
+            fetch('Exploration4.html')
                 .then(response => response.text())
                 .then(html => {
                     const tempDiv = document.createElement('div');
@@ -440,7 +443,7 @@
 
                     // 动画结束后跳转
                     setTimeout(() => {
-                        window.location.href = 'Exploration2.html';
+                        window.location.href = 'Exploratio4.html';
                     }, 4000);
                 }
             });
