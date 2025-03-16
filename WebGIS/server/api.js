@@ -27,8 +27,18 @@ app.use(cors());
 app.use(express.json());
 
 // 静态文件服务
+app.use(express.static(path.join(__dirname, '..')));
 app.use(express.static(path.join(__dirname, '../src')));
 app.use('/public', express.static(path.join(__dirname, '../public')));
+
+// 添加GeoJSON数据路由
+app.get('/data/stations.geojson', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/data/stations.geojson'));
+});
+
+app.get('/data/lines.geojson', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/data/lines.geojson'));
+});
 
 // 模拟数据
 const stations = {};
