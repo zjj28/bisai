@@ -2,6 +2,8 @@
  * 高铁站点WebGIS系统 - 地图初始化与交互模块
  */
 
+console.log('map-init.js开始加载...');
+
 // 地图实例
 let map = null;
 // 站点标记集合
@@ -19,8 +21,8 @@ let railwayLayer = null;
 // DOM元素
 let mapContainer, loadingContainer, loadingProgress, loadingText, errorContainer, retryButton;
 // 数据URL
-const stationsDataUrl = '/public/data/stations.geojson';
-const linesDataUrl = '/public/data/lines.geojson';
+const stationsDataUrl = '/data/stations.geojson';
+const linesDataUrl = '/data/lines.geojson';
 // 站点点击防抖计时器
 let debounceTimer = null;
 // 防抖延迟时间（毫秒）
@@ -44,50 +46,62 @@ function initDomElements() {
 /**
  * 初始化地图
  */
-function initMap() {
+function initRealMap() {
+    console.log('开始初始化地图...');
+    
     // 初始化DOM元素
     initDomElements();
     
-    // 检查AMap是否已加载
-    if (typeof AMap === 'undefined') {
-        console.error('高德地图API未加载，请检查网络连接或API密钥');
-        errorContainer.classList.remove('hidden');
-        return;
-    }
-    
     try {
-        // 创建地图实例
+        // 创建地图实例，添加willReadFrequently属性解决Canvas警告
         map = new AMap.Map('map', {
-            center: [113.65, 34.76], // 中国中部
             zoom: 5,
-            zooms: [3, 18],
-            viewMode: '2D',
+            center: [116.397428, 39.90923],
             resizeEnable: true,
-            mapStyle: 'amap://styles/normal'
+            viewMode: '3D',
+            // 添加Canvas配置，解决频繁读取警告
+            canvas: {
+                willReadFrequently: true
+            }
         });
-
-        // 添加地图控件
-        addMapControls();
-
+        
+        console.log('地图实例创建成功');
+        
+        // 创建信息窗体
+        infoWindow = new AMap.InfoWindow({
+            offset: new AMap.Pixel(0, -30),
+            closeWhenClickMap: true
+        });
+        
         // 创建图层组
         stationLayer = new AMap.OverlayGroup();
         railwayLayer = new AMap.OverlayGroup();
         
-        // 添加图层到地图
+        // 添加图层组到地图
         map.add([stationLayer, railwayLayer]);
-
-        // 创建信息窗体
-        infoWindow = new AMap.InfoWindow({
-            isCustom: true,  // 使用自定义窗体
-            autoMove: true,
-            offset: new AMap.Pixel(0, -30)
+        
+        // 加载地图插件
+        AMap.plugin([
+            'AMap.Scale',
+            'AMap.ToolBar',
+            'AMap.Geolocation',
+            'AMap.ControlBar'
+        ], function() {
+            console.log('地图插件加载成功');
+            // 添加地图控件
+            addMapControls();
+            
+            // 添加图层控制
+            addLayerControl();
+            
+            // 加载数据
+            loadData();
         });
-
-        // 加载数据
-        loadData();
+        
+        console.log('地图初始化完成');
     } catch (error) {
-        console.error('初始化地图失败:', error);
-        errorContainer.classList.remove('hidden');
+        console.error('地图初始化失败:', error);
+        showError('地图初始化失败: ' + error.message);
     }
 }
 
@@ -96,34 +110,66 @@ function initMap() {
  */
 function addMapControls() {
     try {
+        console.log('开始添加地图控件...');
+        
         // 添加比例尺控件
-        const scale = new AMap.Scale();
-        map.addControl(scale);
+        try {
+            console.log('正在添加比例尺控件...');
+            const scale = new AMap.Scale({
+                position: 'LB'
+            });
+            map.addControl(scale);
+            console.log('比例尺控件添加成功');
+        } catch (error) {
+            console.warn('添加比例尺控件失败:', error);
+        }
         
         // 添加工具条控件
-        const toolBar = new AMap.ToolBar();
-        map.addControl(toolBar);
+        try {
+            console.log('正在添加工具条控件...');
+            const toolBar = new AMap.ToolBar({
+                position: 'RB'
+            });
+            map.addControl(toolBar);
+            console.log('工具条控件添加成功');
+        } catch (error) {
+            console.warn('添加工具条控件失败:', error);
+        }
         
         // 添加定位控件
-        const geolocation = new AMap.Geolocation({
-            position: 'RB',
-            offset: new AMap.Pixel(10, 20),
-            zoomToAccuracy: true,
-            showButton: true
-        });
-        map.addControl(geolocation);
+        try {
+            console.log('正在添加定位控件...');
+            const geolocation = new AMap.Geolocation({
+                position: 'RB',
+                offset: new AMap.Pixel(10, 20),
+                zoomToAccuracy: true,
+                showButton: true
+            });
+            map.addControl(geolocation);
+            console.log('定位控件添加成功');
+        } catch (error) {
+            console.warn('添加定位控件失败:', error);
+        }
         
         // 添加缩放控件
-        const controlBar = new AMap.ControlBar({
-            position: {
-                top: '10px',
-                right: '10px'
-            }
-        });
-        map.addControl(controlBar);
+        try {
+            console.log('正在添加缩放控件...');
+            const controlBar = new AMap.ControlBar({
+                position: {
+                    top: '10px',
+                    right: '10px'
+                }
+            });
+            map.addControl(controlBar);
+            console.log('缩放控件添加成功');
+        } catch (error) {
+            console.warn('添加缩放控件失败:', error);
+        }
         
         // 创建自定义图层控制器
         createLayerControl();
+        
+        console.log('所有地图控件添加完成');
     } catch (error) {
         console.error('添加地图控件失败:', error);
     }
@@ -243,6 +289,40 @@ function createLayerControl() {
 }
 
 /**
+ * 更新加载进度
+ * @param {number} percent - 进度百分比
+ * @param {string} message - 进度消息
+ */
+function updateLoadingProgress(percent, message) {
+    if (loadingProgress) {
+        loadingProgress.style.width = `${percent}%`;
+    }
+    if (loadingText && message) {
+        loadingText.textContent = message;
+    }
+}
+
+/**
+ * 显示错误信息
+ * @param {string} message - 错误消息
+ */
+function showError(message) {
+    console.error('错误:', message);
+    
+    // 更新错误消息
+    const errorMessage = document.querySelector('#error-container .error-message p');
+    if (errorMessage) {
+        errorMessage.textContent = message || '无法加载地图数据，请检查网络连接后重试。';
+    }
+    
+    // 显示错误容器
+    errorContainer.classList.remove('hidden');
+    
+    // 隐藏加载容器
+    loadingContainer.classList.add('hidden');
+}
+
+/**
  * 加载GeoJSON数据
  */
 function loadData() {
@@ -256,22 +336,38 @@ function loadData() {
     // 清空现有标记和线路
     clearMap();
 
+    console.log('开始加载数据，站点URL:', stationsDataUrl, '线路URL:', linesDataUrl);
+
     // 使用Promise.all同时加载站点和线路数据
     Promise.all([
-        fetch(stationsDataUrl).then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        }),
-        fetch(linesDataUrl).then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
+        fetch(stationsDataUrl)
+            .then(response => {
+                console.log('站点数据响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`站点数据HTTP错误! 状态: ${response.status}`);
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error('加载站点数据失败:', error);
+                throw new Error(`站点数据加载失败: ${error.message}`);
+            }),
+        fetch(linesDataUrl)
+            .then(response => {
+                console.log('线路数据响应状态:', response.status);
+                if (!response.ok) {
+                    throw new Error(`线路数据HTTP错误! 状态: ${response.status}`);
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.error('加载线路数据失败:', error);
+                throw new Error(`线路数据加载失败: ${error.message}`);
+            })
     ])
     .then(([stationsData, linesData]) => {
+        console.log('数据加载成功，站点数量:', stationsData.features.length, '线路数量:', linesData.features.length);
+        
         updateLoadingProgress(50, '正在处理站点数据...');
         addStationsToMap(stationsData);
         
@@ -285,8 +381,7 @@ function loadData() {
     })
     .catch(error => {
         console.error('加载数据失败:', error);
-        errorContainer.classList.remove('hidden');
-        loadingContainer.classList.add('hidden');
+        showError(error.message || '数据加载失败，请检查网络连接后重试。');
     });
 }
 
@@ -301,16 +396,6 @@ function clearMap() {
     // 重置数组
     markers = [];
     polylines = [];
-}
-
-/**
- * 更新加载进度条
- * @param {number} percent - 进度百分比
- * @param {string} text - 进度文本
- */
-function updateLoadingProgress(percent, text) {
-    loadingProgress.style.width = `${percent}%`;
-    loadingText.textContent = text || `加载中 ${percent}%`;
 }
 
 /**
@@ -549,5 +634,26 @@ function createPopupContent(stationName, stationLine, data) {
     `;
 }
 
+/**
+ * 添加图层控制
+ */
+function addLayerControl() {
+    try {
+        // 创建自定义图层控制器
+        createLayerControl();
+    } catch (error) {
+        console.error('添加图层控制失败:', error);
+    }
+}
+
 // 页面加载完成后初始化DOM元素
-document.addEventListener('DOMContentLoaded', initDomElements); 
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM加载完成，等待地图API加载...');
+    // 初始化DOM元素，但不初始化地图
+    // 地图将在高德地图API加载完成后通过回调函数initMapAfterLoad初始化
+    initDomElements();
+});
+
+// 导出initRealMap函数，使其可以被全局访问
+window.initRealMap = initRealMap;
+console.log('map-init.js加载完成，initRealMap函数已导出'); 
